@@ -6,9 +6,15 @@ class Counter extends Component {
     tags: []
   };
 
-  handleIncrement() {
-    console.log("Increment Clicked.");
-  }
+  // formal approach to bind this.
+  // constructor() {
+  //   super();
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // }
+
+  handleIncrement = product => {
+    console.log("Increment Clicked.", product);
+  };
 
   render() {
     return (
@@ -17,7 +23,7 @@ class Counter extends Component {
           {this.formatCount()}
         </span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.handleIncrement({ id: 1 })}
           className="btn btn-secondary btn-sm"
         >
           Increment
